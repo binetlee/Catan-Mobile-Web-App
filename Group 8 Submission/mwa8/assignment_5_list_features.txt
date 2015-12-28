@@ -1,0 +1,74 @@
+<?php
+/**
+ * File Name: assignment_5_list_features.php
+ * User: Thuan Nguyen
+ */
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+
+    <title>Mobile Web Applications</title>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script
+    -->
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+    <style>
+        p.notes {font-weight: bold}
+    </style>
+
+</head>
+
+<body>
+
+<div data-role="page" id="list_features">
+    <div data-role="header" data-theme="b">
+        <h1>Group 8 Catan</h1>
+        <a href="assignment_5_user_sign_in.php" data-icon="power" class="ui-btn-right" data-theme="a">Sign Out</a>
+    </div>
+    <div data-role="content">
+
+        <div style="text-align: center;">
+            <h2>Feature List</h2>
+            <br/><br/>
+        </div>
+
+        <ul data-role="listview">
+            <li><a href="assignment_5_user_manage_account.php">Change Password</a></li>
+            <li><a href="assignment_5_user_delete.php">Delete Account</a></li>
+            <li><a href="main.php">Randomizer Application</a></li>
+        </ul>
+
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-id="nav" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="gr8_index.php">Home</a></li>
+                <li><a href="assignment_5_list_features.php" class="ui-btn-active ui-state-persist">Feature List</a></li>
+                <li><a href="assignment_5_user_sign_in.php">Sign In</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

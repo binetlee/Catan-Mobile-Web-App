@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Catan Randomizer</title>
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+            init();
+        });
+    </script>
+    <script src="catan.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="content-wrapper">
+    <div id="content-left">
+        <h1 id="title">Group 8 Catan Randomizer</h1>
+        <input type="button" onclick="createMap()" value="Shuffle Land!"/>
+        <input type="button" onclick="shuffleBasic()" value="Shuffle Probabilities!"/>
+        <input type="button" onclick="makeMemory()" value="Memorize Current Map"/>
+        <input type="button" onclick="displayMemory()" value="Display Memorized Map"/>
+        <div style="text-align: center;">
+            <h7><b>Back to <a href="assignment_5_list_features.php"> feature list</a>.</h7>
+        </b></div>
+
+        <div id="content-left">
+            <h2 id="title">Map Legend</h2>
+        <ul class="legend">
+            <li><span class="clay"></span> <b>Clay</b></li>
+            <li><span class="grain"></span> <b>Grain</b></li>
+            <li><span class="wood"></span> <b>Wood</b></li>
+            <li><span class="ore"></span> <b>Ore</b></li>
+            <li><span class="wool"></span> <b>Wool</b></li>
+            <li><span class="desert"></span> <b>Desert</b></li>
+        </ul>
+        </div>
+
+
+
+    </div>
+    <div id="content-right">
+        <div id="map-container">
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

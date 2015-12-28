@@ -1,0 +1,197 @@
+<?php
+/**
+ * User: Binet Lee
+ * Date: 3/10/14
+ * Time: 1:52 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+
+    <title> Hello World Javascript </title>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+</head>
+
+<body>
+
+<div data-role="page" id="home">
+    <div data-theme="c" data-role="header" >
+        <h1>Semester Project</h1>
+    </div>
+    <div data-role="content">
+        <p style="text-align: center;"><font size="4"><b>MIS4312: Group 8</b></font></p>
+        <p style="text-align: center;"><font size="4"><b>Spring Semester 2015</b></font></p>
+        <p style="text-align: center;">Pioneers of Catan</p>
+        <p style="text-align: center;">Our objective for this project will be to focus on creating a mobile app that randomizes the numbers on the Settler’s of Catan Board. We want to ensure that the board is randomized, yet playable.</p>
+    </div>
+    <div data-theme="c" data-role="footer" data-position="fixed" data-id="nav">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#project">Project</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <div style="text-align: center;">
+            <a href="http://imgur.com/rPiQJ9I"><img src="http://i.imgur.com/rPiQJ9I.jpg" width="467" height="397" alt="Logo"/></a>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="team">
+    <div data-role="header" >
+        <h1>The Team</h1>
+    </div>
+    <ul data-role="listview">
+        <li><a href="#leader">Team Leader</a></li>
+        <li><a href="#member">Team Members</a></li>
+    </ul>
+    <div data-role="footer" data-position="fixed" data-id="nav">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" >Home</a></li>
+                <li><a href="#team" class="ui-btn-active ui-state-persist">Team</a></li>
+                <li><a href="#project">Project</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="project">
+    <div data-role="header" >
+        <h1>The Project</h1>
+    </div>
+    <div data-role="content">
+        <p style="text-align: center;"><font size="4"><b>Pioneers of Catan</b></font></p>
+        <p style="text-align: center;">Our application will allow players to randomize tiles, shuffle the probabilities of the tiles, and move harbors in a fair manner. The end result is a board that provides a game experience that is balanced and new.</p>
+    </div>
+    <div data-role="content">
+        <div style="text-align: center;">
+            <a href="http://imgur.com/vCG6xqc"><img src="http://i.imgur.com/vCG6xqc.jpg" width="423" height="253" alt="Logo"/></a>
+        </div>
+    </div>
+    <a href="assignment_5_user_sign_in.php" data-role="button">Run Application</a>
+    <div data-role="footer" data-position="fixed" data-id="nav">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" >Home</a></li>
+                <li><a href="#team" >Team</a></li>
+                <li><a href="#project" class="ui-btn-active ui-state-persist">Project</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="member">
+    <div data-theme="b" data-role="header" >
+        <h1>Team Members</h1>
+    </div>
+    <ul data-icon="false" data-role="listview">
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Steven Borik</b></font></p>
+                <p style="text-align: center;">Major: MIS</p>
+                <p style="text-align: center;">Contact Info: sxb133830@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: Presentation manager and debug application</b></p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Caroline Personius</b></font></p>
+                <p style="text-align: center;">Major: Finance</p>
+                <p style="text-align: center;">Contact Info: clpl30030@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: Application logistics</b></p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Rodolfo Zolezzi</b></font></p>
+                <p style="text-align: center;">Major: MIS</p>
+                <p style="text-align: center;">Contact Info: rxz141530@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: Application development and coding</b></p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Stephen Strack</b></font></p>
+                <p style="text-align: center;">Major: Accounting</p>
+                <p style="text-align: center;">Contact Info: sxs124331@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: Application development and coding</b></p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Matthew Wallace</b></font></p>
+                <p style="text-align: center;">Major: MIS</p>
+                <p style="text-align: center;">Contact Info: maw098120@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: Creating System IDE</b></p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Adam Samadazda</b></font></p>
+                <p style="text-align: center;">Major: Finance</p>
+                <p style="text-align: center;">Contact Info: acs134230@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: QA Testing</b></p>
+            </a>
+        </li>
+    </ul>
+    <div data-role="footer" data-position="fixed" data-id="nav">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" >Home</a></li>
+                <li><a href="#team" >Team</a></li>
+                <li><a href="#project" >Project</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="leader">
+    <div data-theme="b" data-role="header" >
+        <h1>Team Leader</h1>
+    </div>
+    <ul data-icon="false" data-role="listview">
+        <li>
+            <a href="#">
+                <p style="text-align: center;"><font size="3"><b>Binet Lee</b></font></p>
+                <p style="text-align: center;">Major: MIS</p>
+                <p style="text-align: center;">Contact Info: bcl140030@utdallas.edu</p>
+                <p style="text-align: center;"><b>Responsibility: Manages project and overall project direction</b></p>
+            </a>
+        </li>
+    </ul>
+    <div data-role="footer" data-position="fixed" data-id="nav">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" >Home</a></li>
+                <li><a href="#team" >Team</a></li>
+                <li><a href="#project" >Project</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html

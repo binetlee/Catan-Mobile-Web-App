@@ -1,0 +1,82 @@
+<?php
+/**
+ * File name: assignment_5_user_sign_in_dataprocess_REDIRECT.php
+ * User: Thuan Nguyen
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+
+    <title>Mobile Web Applications</title>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- USE LATEST VERSION OF JQUERY MOBILE - MUST RUN IN CHROME for the -->
+
+    <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" />
+    <script src="jQuery.ui.datepicker.js"></script>
+    <script src="jquery.ui.datepicker.mobile.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script
+
+</head>
+
+<body>
+
+
+<?php // Start of PHP code
+
+// BE CAREFUL! THE PATH MUST BE CORRECT, especially /MIS4312/mwa?
+require_once($_SERVER['DOCUMENT_ROOT'].'/mwa8/lectureConfigPHP.php');
+
+$anEmail = $_POST["email"];
+$aPassword = $_POST["password"];
+
+try{
+    $conn = new PDO($dsn, $DBAname, $DBApassword);
+
+    $sqlcmd = $conn->prepare( "SELECT * FROM users WHERE email = :email and password = :password" );
+    $sqlcmd->bindValue( ":email", $anEmail, PDO::PARAM_STR );
+    $sqlcmd->bindValue( ":password", $aPassword, PDO::PARAM_STR );
+
+    $sqlcmd->execute();
+
+    $rows = $sqlcmd->fetch();
+
+    if ( $rows ) {
+
+        header("Location:/MIS4312/mwa8/assignment_5_list_features.php");
+    }
+    else {
+
+        header("Location:/MIS4312/mwa8/assignment_5_user_sign_in_failed.php");
+    }
+
+    // Close the connection
+    $conn = null;
+}
+catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
+?> <!-- End of PHP code -->
+
+
+
+</body>
+</html>

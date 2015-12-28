@@ -1,0 +1,125 @@
+<?php
+/**
+ * File name: assignment_5_user_sign_up_dataprocess_REDIRECT.php
+ * User: Thuan Nguyen
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+
+    <title>Mobile Web Applications</title>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- USE LATEST VERSION OF JQUERY MOBILE - MUST RUN IN CHROME for the -->
+
+    <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" />
+    <script src="jQuery.ui.datepicker.js"></script>
+    <script src="jquery.ui.datepicker.mobile.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script
+
+</head>
+
+<body>
+
+<?php // Start of PHP code
+
+// IMPORTANT NOTES:
+// In this file, redirection is used --> header("Location: ...");
+// Therefore, no html or php code that prints out (echo, print, ...) some content is allowed.
+
+// BE CAREFUL! THE PATH MUST BE CORRECT, especially /MIS4312/mwa?
+require_once($_SERVER['DOCUMENT_ROOT'].'/mwa8/lectureConfigPHP.php');
+
+// Get the new user's email and password
+$anEmail = $_POST["email"];
+$aPassword = $_POST["password"];
+$aRetypePassword = $_POST["retype_password"];
+
+// Verify that password and retype_password must be matched
+
+if (strcmp($aPassword, $aRetypePassword) != 0) {
+
+    // Redirect to another mobile web page to handle the scenario
+    header("Location:/MIS4312/mwa8/assignment_5_user_sign_up_failed_passwords_not_matched.php");
+}
+else { // Start sign-up code
+
+    // Verify to be sure that no such account has been created in the system
+    try{
+
+        $conn = new PDO($dsn, $DBAname, $DBApassword);
+
+        // $sqlcmd: using prepare
+        $sqlcmd = $conn->prepare( "SELECT * FROM users WHERE email = :email and password = :password" );
+        $sqlcmd->bindValue( ":email", $anEmail, PDO::PARAM_STR );
+        $sqlcmd->bindValue( ":password", $aPassword, PDO::PARAM_STR );
+
+        // Execute the SQL command
+        $sqlcmd->execute();
+        $rows = $sqlcmd->fetch();
+
+        if ( $rows ) {
+
+            // Redirect to another mobile web page to handle the scenario: failed sign-up
+            // because an account with the same credentials exist
+            header("Location:/MIS4312/mwa8/assignment_5_user_sign_up_failed_account_exist.php");
+        }
+        else {
+
+            // NO existing account with the same email address has been created in the system
+            // READY to create a new account for the new user
+
+            // Prepare and bind values to the command
+            $sqlcmd2 = $conn->prepare( "INSERT INTO users (email, password) VALUE (:email, :password)" );
+            $sqlcmd2->bindValue( ":email", $anEmail, PDO::PARAM_STR );
+            $sqlcmd2->bindValue( ":password", $aPassword, PDO::PARAM_STR );
+
+            // Execute the command
+            $isOK = $sqlcmd2->execute();
+
+            // Check the result
+            if ($isOK){
+
+                // Successfully creating new account
+                // Redirect to another mobile web page to handle the scenario
+                header("Location:/MIS4312/mwa8/assignment_5_list_features.php");
+            }
+            else {
+
+                // Cannot create new account in the database - so determined cause
+                // Redirect to another mobile web page to handle the scenario
+                header("Location:/MIS4312/mwa8/welcome.php");
+            }
+        }
+
+        // Close the connection
+        $conn = null;
+    }
+    catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+
+} // End of sign-up code
+
+?> <!-- End of PHP code -->
+
+
+</body>
+</html>
